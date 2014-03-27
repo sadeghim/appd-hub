@@ -105,8 +105,14 @@
                     <g:set var="loginId"><alatag:loggedInUserDisplayname/></g:set>
                     <a class="navbar-link" href="http://www.ala.org.au/my-profile/">${loginId}</a>
                     <g:if test="${loginId}">|</g:if>
-                    <g:set var="returnUrlPath" value="${serverName}${request.requestURI}${request.queryString ? '?' : ''}${request.queryString}"/>
-                    <hf:loginLogout logoutUrl="${request.contextPath}/logout/logout" returnUrlPath="${returnUrlPath}"/>
+                    <g:if test="${!pageProperty(name:'page.returnUrlPath')}">
+                        <g:set var="returnUrlPath" value="${grailsApplication.config.serverName}${request.requestURI}${request.queryString ? '?' : ''}${request.queryString}"/>
+                    </g:if>
+                    <g:else>
+                        <g:set var="returnUrlPath" value="${pageProperty(name:'page.returnUrlPath')}"/>
+                    </g:else>
+                    <hf:loginLogout logoutUrl="${request.contextPath}/logout/logout" logoutReturnToUrl="${returnUrlPath}"/>
+
                 </p>
                 %{--<p class="navbar-text pull-right">--}%
                     %{--Logged in as <a href="#" class="navbar-link">${username?:'unknown'}</a>--}%
