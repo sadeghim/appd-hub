@@ -106,7 +106,8 @@
                     <a class="navbar-link" href="http://www.ala.org.au/my-profile/">${loginId}</a>
                     <g:if test="${loginId}">|</g:if>
                     <g:if test="${!pageProperty(name:'page.returnUrlPath')}">
-                        <g:set var="returnUrlPath" value="${grailsApplication.config.serverName}${request.requestURI}${request.queryString ? '?' : ''}${request.queryString}"/>
+                        %{--<g:set var="returnUrlPath" value="${grailsApplication.config.serverName}${request.requestURI}${request.queryString ? '?' : ''}"/>--}%
+                        <g:set var="returnUrlPath" value="${g.createLink(uri:'/index', absolute:true)}"/>
                     </g:if>
                     <g:else>
                         <g:set var="returnUrlPath" value="${pageProperty(name:'page.returnUrlPath')}"/>

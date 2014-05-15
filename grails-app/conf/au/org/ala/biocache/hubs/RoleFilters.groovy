@@ -6,7 +6,8 @@ class RoleFilters {
     def filters = {
         all(controller:'*', action:'*') {
             before = {
-                //allow any user to perform a logout operation
+                // Note this is not triggered for pages which have no controller (have a view only)
+                // Allow any user to perform a logout operation
                 if(! controllerName.equals("logout")) {
                     if(!roles){
                         roles =grailsApplication.config.authorise.roles?.split(",")?.toList()
@@ -20,14 +21,15 @@ class RoleFilters {
                             return
                         }
                     }
-                    log.debug(controllerName + " " + actionName)
                     def authorised=false
                     roles.each {
+                        log.info "Checking role: ${it}"
                         if(request.isUserInRole(it)){
                             authorised=true
                         }
                     }
-
+                    log.info(controllerName + " " + actionName)
+                    log.info("authorised = " + authorised)
                     if(!authorised){
                         //we need to display the error message
                         flash.message = "You are not authorised to access this site."

@@ -30,6 +30,7 @@ if(System.getenv(ENV_NAME) && new File(System.getenv(ENV_NAME)).exists()) {
     println "[${appName}] Including default configuration file: " + default_config;
     grails.config.locations.add "file:" + default_config
 } else {
+    runWithNoExternalConfig = true
     println "[${appName}] No external configuration file defined."
 }
 
@@ -39,9 +40,9 @@ println "default_config = ${default_config}"
 /******************************************************************************\
  *  SKINNING
 \******************************************************************************/
-ala.skin = 'generic'
-skin.orgNameLong = "Generic Portal"
-skin.orgNameShort = "Generic"
+ala.skin = 'appd'
+skin.orgNameLong = "Australian Plant Pest Database"
+skin.orgNameShort = "APPD"
 map.pointColour = "df4a21"
 // whether crumb trail should include a home link that is external to this webabpp - ala.baseUrl is used if true
 skin.includeBaseUrl = true
@@ -82,9 +83,9 @@ clubRoleForHub = "ROLE_ADMIN"
 serverName = 'http://dev.ala.org.au:8080'
 security.cas.appServerName = "http://dev.ala.org.au:8080"
 security.cas.casServerName = 'https://auth.ala.org.au'
-security.cas.uriFilterPattern = '/admin, /admin/.*'
-security.cas.authenticateOnlyIfLoggedInPattern = "/occurrences/(?!.+userAssertions|facet.+).+,/explore/your-area"
-ssecurity.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
+security.cas.uriFilterPattern = '/admin/.*,/occurrences/.*,/occurrence/.*/explore/.*,/proxy.*,/search'
+security.cas.authenticateOnlyIfLoggedInPattern = "/,/index"
+security.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
 security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
 security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
 security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
@@ -203,10 +204,11 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+    info   'grails.app'
     debug  'grails.app.controllers',
-            'grails.app.services',
-            //'grails.app.taglib',
-            //'grails.app',
-            'au.org.ala.cas',
-            'au.org.ala.biocache.hubs'
+           'grails.app.services',
+           //'grails.app.taglib',
+           //'grails.app',
+           'au.org.ala.cas',
+           'au.org.ala.biocache.hubs'
 }

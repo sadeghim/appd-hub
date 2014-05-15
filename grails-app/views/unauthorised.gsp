@@ -14,12 +14,17 @@
 </head>
 
 <body>
-
+<h1>Unauthorised</h1>
 <g:if test="${flash.message}">
-
-  <h2> ${flash.message} </h2>
-
+    <h4>${flash.message}</h4>
 </g:if>
+<g:else>
+</g:else>
+<g:set var="loginLogout" value="${hf.loginLogout(loginReturnToUrl:g.createLink(uri:'/index',absolute:true))}"/>
+<g:if test="${loginLogout =~ /login/}">
+    Please ${raw(loginLogout)}
+</g:if>
+%{--<hf:loginLogout loginReturnToUrl="${request.contextPath}/index" logoutUrl="${request.contextPath}/logout/logout" logoutReturnToUrl="${request.contextPath}/"/>--}%
 
 </body>
 </html>
