@@ -30,7 +30,7 @@ if(System.getenv(ENV_NAME) && new File(System.getenv(ENV_NAME)).exists()) {
     println "[${appName}] Including default configuration file: " + default_config;
     grails.config.locations.add "file:" + default_config
 } else {
-    runWithNoExternalConfig = true
+    //runWithNoExternalConfig = true
     println "[${appName}] No external configuration file defined."
 }
 
