@@ -8,7 +8,7 @@
     <meta name="app.version" content="${g.meta(name:'app.version')}"/>
     <meta name="app.build" content="${g.meta(name:'app.build')}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    %{--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">--}%
 
     <title><g:layoutTitle /></title>
     <r:require module="generic" />
@@ -100,9 +100,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">${raw(orgNameLong)}</a>
+            <a class="brand" href="${g.createLink(uri:'/')}" style="">
+                <g:img dir="images" file="pha_footer_logo.png"/>
+            </a>
+            <a class="brand" href="${g.createLink(uri:'/')}" style="font-size: 24px;color:#AAAAAA;line-height: 28px;">
+                &nbsp;&nbsp;${raw(orgNameLong)}
+            </a>
             <div class="nav-collapse collapse">
-                <p class="navbar-text pull-right">
+                <p class="navbar-text pull-right" style="line-height: 50px;">
                     <g:set var="loginId"><alatag:loggedInUserDisplayname/></g:set>
                     <a class="navbar-link" href="http://www.ala.org.au/my-profile/">${loginId}</a>
                     <g:if test="${loginId}">|</g:if>
@@ -119,11 +124,11 @@
                 %{--<p class="navbar-text pull-right">--}%
                     %{--Logged in as <a href="#" class="navbar-link">${username?:'unknown'}</a>--}%
                 %{--</p>--}%
-                <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                %{--<ul class="nav hide">--}%
+                    %{--<li class="active"><a href="#">Home</a></li>--}%
+                    %{--<li><a href="#about">About</a></li>--}%
+                    %{--<li><a href="#contact">Contact</a></li>--}%
+                %{--</ul>--}%
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </div><!--/.navbar-inner -->
