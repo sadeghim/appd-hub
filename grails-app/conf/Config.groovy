@@ -40,9 +40,13 @@ println "default_config = ${default_config}"
 /******************************************************************************\
  *  SKINNING
 \******************************************************************************/
-ala.skin = 'appd'
+organisation.baseUrl = "http://www.ala.org.au"
+skin.layout = 'appd'
+skin.fluidLayout = "true"
 skin.orgNameLong = "Australian Plant Pest Database"
 skin.orgNameShort = "APPD"
+skin.useAlaBie = true
+skin.useAlaSpatialPortal = false
 map.pointColour = "df4a21"
 // whether crumb trail should include a home link that is external to this webabpp - ala.baseUrl is used if true
 skin.includeBaseUrl = true
@@ -51,28 +55,8 @@ skin.footerUrl = "classpath:resources/generic-footer.jsp" // can be external URL
 skin.fluidLayout = true // true or false
 chartsBgColour = "#FFF"
 
-/******************************************************************************\
- *  EXTERNAL SERVERS
-\******************************************************************************/
-bie.baseURL = "http://bie.ala.org.au/"
-bie.searchPath = "/search"
 biocache.baseURL = "http://dev.ala.org.au:8080/biocache-hubs"
-biocacheServicesUrl = "http://biocache.ala.org.au/ws"
-spatial.baseURL = "http://spatial.ala.org.au/"
-ala.baseURL = "http://www.ala.org.au"
-collections.baseUrl = "http://collections.ala.org.au"
-dataQualityChecksUrl = "https://docs.google.com/spreadsheet/pub?key=0AjNtzhUIIHeNdHJOYk1SYWE4dU1BMWZmb2hiTjlYQlE&single=true&gid=0&output=csv"
-
-/******************************************************************************\
- *  MISC
-\******************************************************************************/
-map.cloudmade.key = "BC9A493B41014CAABB98F0471D759707" // this is website specific
-downloads.extra = "dataResourceUid,dataResourceName.p"
-googleKey = "ABQIAAAAoBSAWIKN0nq5ftlHnSqAURRYnbqkszd6zrcg1s-Fm7JsBxVj5xRaQWSGnjeflao2CYtNRBZxuDrYyg"
-// data hub uid
-biocacheRestService.queryContext = ""
-apiKey = "api-key-to-use"
-clubRoleForHub = "ROLE_ADMIN"
+biocache.ajax.useProxy = true
 
 /******************************************************************************\
  *  CAS SETTINGS
@@ -83,9 +67,9 @@ clubRoleForHub = "ROLE_ADMIN"
 serverName = 'http://dev.ala.org.au:8080'
 security.cas.appServerName = "http://dev.ala.org.au:8080"
 security.cas.casServerName = 'https://auth.ala.org.au'
-security.cas.uriFilterPattern = '/admin/.*,/occurrences/.*,/occurrence/.*/explore/.*,/proxy.*,/search'
-security.cas.authenticateOnlyIfLoggedInPattern = "/,/index"
-security.cas.uriExclusionFilterPattern = '/images.*,/css.*,/js.*'
+security.cas.uriFilterPattern = '/(?!index|unauthorised.+).+'
+security.cas.authenticateOnlyIfLoggedInPattern = "/,/index,/unauthorised"
+security.cas.uriExclusionFilterPattern = '/,/index,/unauthorised,/static.*,/plugins.*,/images.*,/css.*,/js.*,.*json'
 security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
 security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
 security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
@@ -190,7 +174,28 @@ log4j = {
     // Example of changing the log pattern for the default console appender:
     //
     appenders {
-        console name:'stdout', layout:pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n")
+        environments {
+            production {
+                rollingFile name: "tomcatLog", maxFileSize: 102400000, file: "/var/log/tomcat6/appd-hub.log", threshold: org.apache.log4j.Level.ERROR, layout: pattern(conversionPattern: "%d %-5p [%c{1}] %m%n")
+                //'null' name: "stacktrace"
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n"), threshold: org.apache.log4j.Level.WARN
+            }
+            development {
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n"), threshold: org.apache.log4j.Level.DEBUG
+            }
+            test {
+//                rollingFile name: "tomcatLog", maxFileSize: 102400000, file: "/tmp/${appName}-test.log", threshold: org.apache.log4j.Level.DEBUG, layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n")
+//                'null' name: "stacktrace"
+                console name: "stdout", layout: pattern(conversionPattern: "%d %-5p [%c{1}]  %m%n"), threshold: org.apache.log4j.Level.INFO
+            }
+        }
+    }
+
+    root {
+        // change the root logger to my tomcatLog file
+        error 'tomcatLog'
+        warn 'tomcatLog'
+        additivity = true
     }
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers

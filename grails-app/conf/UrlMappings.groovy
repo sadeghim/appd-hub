@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
         "/explore/your-area"(redirect: [controller: 'home'])
-        "/"(view:"/index")
+        "/"(redirect:[uri:"/index"])
         "/index"(view:"/index")
         "/search"(controller:'home')
         "500"(view:'/error')

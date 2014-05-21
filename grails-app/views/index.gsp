@@ -9,12 +9,12 @@
             <h2>${grailsApplication.config.skin.orgNameLong}</h2>
             <div style="margin: 10px 0;">
                 Please note: access to the APPD requires you to be logged in and to have
-                the appropriate access role. To request access to this service send an emailt to
+                the appropriate access role. To request access to this service send an email to
                 <a href="mailto:info@ala.org.au?subject=Request access to APPD">info@ala.org.au</a>,
-                providing your login name, affiliations and reasons for requesting access.
+                providing your login name, affiliation and reasons for requesting access.
             </div>
 
-            <g:set var="loginLogout" value="${hf.loginLogout(loginReturnToUrl:g.createLink(uri:'/index',absolute:true))}"/>
+            <g:set var="loginLogout" value="${hf.loginLogout(loginReturnToUrl:g.createLink(uri:'/search',absolute:true))}"/>
             <g:if test="${loginLogout =~ /login/}">
                 <div style="margin: 10px 0;">
                     Continue to  ${raw(loginLogout)} page.
