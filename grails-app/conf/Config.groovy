@@ -46,6 +46,7 @@ skin.fluidLayout = "true"
 skin.orgNameLong = "Australian Plant Pest Database"
 skin.orgNameShort = "APPD"
 skin.useAlaBie = true
+skin.taxaLinks.baseUrl = ''
 skin.useAlaSpatialPortal = false
 map.pointColour = "df4a21"
 // whether crumb trail should include a home link that is external to this webabpp - ala.baseUrl is used if true
