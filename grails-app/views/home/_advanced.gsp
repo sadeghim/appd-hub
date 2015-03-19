@@ -59,31 +59,17 @@
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title05" default="Find records from the following institution or collection"/></b>
+    <b><g:message code="advancedsearch.title05" default="Find records from the following dataset"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table05col01.title" default="Institution or Collection"/></td>
+            <td class="labels"><g:message code="advancedsearch.table05col01.title" default="Dataset"/></td>
             <td>
-                <select class="institution_uid collection_uid" name="institution_collection" id="institution_collection">
-                    <option value=""><g:message code="advancedsearch.table05col01.option01.label" default="-- select an institution or collection --"/></option>
-                    <g:each var="inst" in="${request.getAttribute(FacetsName.INSTITUTION.fieldname)}">
-                        <optgroup label="${inst.value}">
-                            <option value="${inst.key}"><g:message code="advancedsearch.table05col01.option02.label" default="All records from"/> ${inst.value}</option>
-                            <g:each var="coll" in="${request.getAttribute(FacetsName.COLLECTION.fieldname)}">
-                                <g:if test="${inst.key == 'in13' && StringUtils.startsWith(coll.value, inst.value)}">
-                                    <option value="${coll.key}">${StringUtils.replace(StringUtils.replace(coll.value, inst.value, ""), " - " ,"")} <g:message code="advancedsearch.table05col01.option03.label" default="Collection"/></option>
-                                </g:if>
-                                <g:elseif test="${inst.key == 'in6' && StringUtils.startsWith(coll.value, 'Australian National')}">
-                                    <%-- <option value="${coll.key}">${fn:replace(coll.value,"Australian National ", "")}</option> --%>
-                                    <option value="${coll.key}">${coll.value}</option>
-                                </g:elseif>
-                                <g:elseif test="${StringUtils.startsWith(coll.value, inst.value)}">
-                                    <option value="${coll.key}">${StringUtils.replace(coll.value, inst.value, "")}</option>
-                                </g:elseif>
-                            </g:each>
-                        </optgroup>
+				<select class="dataset" name="dataset" id="dataset">
+                    <option value=""><g:message code="advancedsearch.table06col01.option.label" default="-- select a dataset --"/></option>
+                    <g:each var="dataset" in="${request.getAttribute(FacetsName.DATA_RESOURCE.fieldname)}">
+                        <option value="${dataset.key}">${country.value}</option>
                     </g:each>
                 </select>
             </td>
