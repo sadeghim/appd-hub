@@ -59,32 +59,15 @@
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title05" default="Find records from the following dataset"/></b>
+    <b><g:message code="advancedsearch.title05" default="Find records from the following regions"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table05col01.title" default="Dataset"/></td>
-            <td>
-				<select class="dataset" name="dataset" id="dataset">
-                    <option value=""><g:message code="advancedsearch.table06col01.option.label" default="-- select a dataset --"/></option>
-                    <g:each var="dataset" in="${request.getAttribute(FacetsName.DATA_RESOURCE.fieldname)}">
-                        <option value="${dataset.key}">${country.value}</option>
-                    </g:each>
-                </select>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <b><g:message code="advancedsearch.title06" default="Find records from the following regions"/></b>
-    <table border="0" width="100" cellspacing="2" class="compact">
-        <thead/>
-        <tbody>
-        <tr>
-            <td class="labels"><g:message code="advancedsearch.table06col01.title" default="Country"/></td>
+            <td class="labels"><g:message code="advancedsearch.table05col01.title" default="Country"/></td>
             <td>
                 <select class="country" name="country" id="country">
-                    <option value=""><g:message code="advancedsearch.table06col01.option.label" default="-- select a country --"/></option>
+                    <option value=""><g:message code="advancedsearch.table05col01.option.label" default="-- select a country --"/></option>
                     <g:each var="country" in="${request.getAttribute(FacetsName.COUNTRIES.fieldname)}">
                         <option value="${country.key}">${country.value}</option>
                     </g:each>
@@ -92,10 +75,10 @@
             </td>
         </tr>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table06col02.title" default="State/Territory"/></td>
+            <td class="labels"><g:message code="advancedsearch.table05col02.title" default="State/Territory"/></td>
             <td>
                 <select class="state" name="state" id="state">
-                    <option value=""><g:message code="advancedsearch.table06col02.option.label" default="-- select a state/territory --"/></option>
+                    <option value=""><g:message code="advancedsearch.table05col02.option.label" default="-- select a state/territory --"/></option>
                     <g:each var="state" in="${request.getAttribute(FacetsName.STATES.fieldname)}">
                         <option value="${state.key}">${state.value}</option>
                     </g:each>
@@ -105,10 +88,10 @@
         <g:set var="autoPlaceholder" value="start typing and select from the autocomplete drop-down list"/>
         <g:if test="${request.getAttribute(FacetsName.IBRA.fieldname) && request.getAttribute(FacetsName.IBRA.fieldname).size() > 1}">
         <tr>
-            <td class="labels"><abbr title="Interim Biogeographic Regionalisation of Australia">IBRA</abbr> <g:message code="advancedsearch.table06col03.title" default="region"/></td>
+            <td class="labels"><abbr title="Interim Biogeographic Regionalisation of Australia">IBRA</abbr> <g:message code="advancedsearch.table05col03.title" default="region"/></td>
             <td>
                 <select class="biogeographic_region" name="ibra" id="ibra">
-                    <option value=""><g:message code="advancedsearch.table06col03.option.label" default="-- select an IBRA region --"/></option>
+                    <option value=""><g:message code="advancedsearch.table05col03.option.label" default="-- select an IBRA region --"/></option>
                     <g:each var="region" in="${request.getAttribute(FacetsName.IBRA.fieldname)}">
                         <option value="${region.key}">${region.value}</option>
                     </g:each>
@@ -118,10 +101,10 @@
         </g:if>
         <g:if test="${request.getAttribute(FacetsName.IMCRA.fieldname) && request.getAttribute(FacetsName.IMCRA.fieldname).size() > 1}">
         <tr>
-            <td class="labels"><abbr title="Integrated Marine and Coastal Regionalisation of Australia">IMCRA</abbr> <g:message code="advancedsearch.table06col04.title" default="region"/></td>
+            <td class="labels"><abbr title="Integrated Marine and Coastal Regionalisation of Australia">IMCRA</abbr> <g:message code="advancedsearch.table05col04.title" default="region"/></td>
             <td>
                 <select class="biogeographic_region" name="imcra" id="imcra">
-                    <option value=""><g:message code="advancedsearch.table06col04.option.label" default="-- select an IMCRA region --"/></option>
+                    <option value=""><g:message code="advancedsearch.table05col04.option.label" default="-- select an IMCRA region --"/></option>
                     <g:each var="region" in="${request.getAttribute(FacetsName.IMCRA.fieldname)}">
                         <option value="${region.key}">${region.value}</option>
                     </g:each>
@@ -131,10 +114,10 @@
         </g:if>
         <g:if test="${request.getAttribute(FacetsName.LGA.fieldname) && request.getAttribute(FacetsName.LGA.fieldname).size() > 1}">
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table06col05.title" default="Local Govt. Area"/></td>
+            <td class="labels"><g:message code="advancedsearch.table05col05.title" default="Local Govt. Area"/></td>
             <td>
                 <select class="lga" name="cl959" id="cl959">
-                    <option value=""><g:message code="advancedsearch.table06col05.option.label" default="-- select local government area--"/></option>
+                    <option value=""><g:message code="advancedsearch.table05col05.option.label" default="-- select local government area--"/></option>
                     <g:each var="region" in="${request.getAttribute(FacetsName.LGA.fieldname)}">
                         <option value="${region.key}">${region.value}</option>
                     </g:each>
@@ -144,84 +127,45 @@
         </g:if>
         </tbody>
     </table>
-    <g:if test="${request.getAttribute(FacetsName.TYPE_STATUS.fieldname) && request.getAttribute(FacetsName.TYPE_STATUS.fieldname).size() > 1}">
-        <b><g:message code="advancedsearch.title07" default="Find records from the following type status"/></b>
-        <table border="0" width="100" cellspacing="2" class="compact">
-            <thead/>
-            <tbody>
-            <tr>
-                <td class="labels"><g:message code="advancedsearch.table07col01.title" default="Type Status"/></td>
-                <td>
-                    <select class="type_status" name="type_status" id="type_status">
-                        <option value=""><g:message code="advancedsearch.table07col01.option.label" default="-- select a type status --"/></option>
-                        <g:each var="type" in="${request.getAttribute(FacetsName.TYPE_STATUS.fieldname)}">
-                            <option value="${type.key}">${type.value}</option>
-                        </g:each>
-                    </select>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </g:if>
-    <g:if test="${request.getAttribute(FacetsName.BASIS_OF_RECORD.fieldname) && request.getAttribute(FacetsName.BASIS_OF_RECORD.fieldname).size() > 1}">
-        <b><g:message code="advancedsearch.title08" default="Find records from the following basis of record (record type)"/></b>
-        <table border="0" width="100" cellspacing="2" class="compact">
-            <thead/>
-            <tbody>
-            <tr>
-                <td class="labels"><g:message code="advancedsearch.table08col01.title" default="Basis of record"/></td>
-                <td>
-                    <select class="basis_of_record" name="basis_of_record" id="basis_of_record">
-                        <option value=""><g:message code="advancedsearch.table08col01.option.label" default="-- select a basis of record --"/></option>
-                        <g:each var="bor" in="${request.getAttribute(FacetsName.BASIS_OF_RECORD.fieldname)}">
-                            <option value="${bor.key}"><g:message code="${bor.value}"/></option>
-                        </g:each>
-                    </select>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </g:if>
-    <b><g:message code="advancedsearch.title09" default="Find records with the following dataset fields"/></b>
+    <b><g:message code="advancedsearch.title06" default="Find records with the following dataset fields"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table09col01.title" default="Catalogue Number"/></td>
+            <td class="labels"><g:message code="advancedsearch.table06col01.title" default="Dataset"/></td>
+            <td>
+		<select class="dataset" name="dataset" id="dataset">
+                    <option value=""><g:message code="advancedsearch.table06col01.option.label" default="-- select a dataset --"/></option>
+                    <g:each var="dataset" in="${request.getAttribute(FacetsName.DATA_RESOURCE.fieldname)}">
+                        <option value="${dataset.key}">${dataset.value}</option>
+                    </g:each>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="labels"><g:message code="advancedsearch.table06col02.title" default="Catalogue Number"/></td>
             <td>
                 <input type="text" name="catalogue_number" id="catalogue_number" class="dataset" placeholder="" value=""/>
             </td>
         </tr>
-        <tr>
-            <td class="labels"><g:message code="advancedsearch.table09col02.title" default="Record Number"/></td>
-            <td>
-                <input type="text" name="record_number" id="record_number" class="dataset" placeholder="" value=""/>
-            </td>
-        </tr>
-        <%--<tr>
-            <td class="labels">Collector Name</td>
-            <td>
-                 <input type="text" name="collector" id="collector" class="dataset" placeholder="" value=""/>
-            </td>
-        </tr> --%>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title10" default="Find records within the following date range"/></b>
+    <b><g:message code="advancedsearch.title07" default="Find records within the following date range"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table10col01.title" default="Begin Date"/></td>
+            <td class="labels"><g:message code="advancedsearch.table07col01.title" default="Begin Date"/></td>
             <td>
                 <input type="text" name="start_date" id="startDate" class="occurrence_date" placeholder="" value=""/>
-                <g:message code="advancedsearch.table10col01.des" default="(YYYY-MM-DD) leave blank for earliest record date"/>
+                <g:message code="advancedsearch.table07col01.des" default="(YYYY-MM-DD) leave blank for earliest record date"/>
             </td>
         </tr>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table10col02.title" default="End Date"/></td>
+            <td class="labels"><g:message code="advancedsearch.table07col02.title" default="End Date"/></td>
             <td>
                 <input type="text" name="end_date" id="endDate" class="occurrence_date" placeholder="" value=""/>
-                <g:message code="advancedsearch.table10col02.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
+                <g:message code="advancedsearch.table07col02.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
             </td>
         </tr>
         </tbody>
