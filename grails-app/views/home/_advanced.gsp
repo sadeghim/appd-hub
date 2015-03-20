@@ -127,15 +127,15 @@
         </g:if>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title06" default="Find records with the following dataset fields"/></b>
+    <b><g:message code="advancedsearch.section.dataset" default="Find records with the following dataset fields"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table06col01.title" default="Dataset"/></td>
+            <td class="labels"><g:message code="advancedsearch.dataset.title" default="Dataset"/></td>
             <td>
 		<select class="dataset" name="dataset" id="dataset">
-                    <option value=""><g:message code="advancedsearch.table06col01.option.label" default="-- select a dataset --"/></option>
+                    <option value=""><g:message code="advancedsearch.dataset.option.label" default="-- select a dataset --"/></option>
                     <g:each var="dataset" in="${request.getAttribute(FacetsName.DATA_RESOURCE.fieldname)}">
                         <option value="${dataset.key}">${dataset.value}</option>
                     </g:each>
