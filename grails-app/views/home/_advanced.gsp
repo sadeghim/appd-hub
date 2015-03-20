@@ -2,26 +2,26 @@
 <form name="advancedSearchForm" id="advancedSearchForm" action="${request.contextPath}/advancedSearch" method="POST">
     <input type="text" id="solrQuery" name="q" style="position:absolute;left:-9999px;" value="${params.q}"/>
     <input type="hidden" name="nameType" value="matched_name_children"/>
-    <b><g:message code="advancedsearch.title01" default="Find records that have"/></b>
+    <b><g:message code="advancedsearch.section.fulltext" default="Find records that have"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table01col01.title" default="ALL of these words (full text)"/></td>
+            <td class="labels"><g:message code="advancedsearch.fulltext.title" default="ALL of these words (full text)"/></td>
             <td>
                 <input type="text" name="text" id="text" class="dataset" placeholder="" size="80" value="${params.text}"/>
             </td>
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title02" default="Find records for ANY of the following taxa (matched/processed taxon concepts)"/></b>
+    <b><g:message code="advancedsearch.section.taxon" default="Find records for ANY of the following taxa (matched/processed taxon concepts)"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <g:each in="${1..4}" var="i">
             <g:set var="lsidParam" value="lsid_${i}"/>
             <tr style="" id="taxon_row_${i}">
-                <td class="labels"><g:message code="advancedsearch.table02col01.title" default="Species/Taxon"/></td>
+                <td class="labels"><g:message code="advancedsearch.taxon.title" default="Species/Taxon"/></td>
                 <td>
                     <input type="text" value="" id="taxa_${i}" name="taxonText" class="name_autocomplete" size="60">
                     <input type="hidden" name="lsid" class="lsidInput" id="taxa_${i}" value=""/>
@@ -30,27 +30,27 @@
         </g:each>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title03" default="Find records that specify the following scientific name (verbatim/unprocessed name)"/></b>
+    <b><g:message code="advancedsearch.section.scientificname" default="Find records that specify the following scientific name (verbatim/unprocessed name)"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table03col01.title" default="Raw Scientific Name"/></td>
+            <td class="labels"><g:message code="advancedsearch.scientificname.title" default="Raw Scientific Name"/></td>
             <td>
                 <input type="text" name="raw_taxon_name" id="raw_taxon_name" class="dataset" placeholder="" size="60" value=""/>
             </td>
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title04" default="Find records from the following species group"/></b>
+    <b><g:message code="advancedsearch.section.group" default="Find records from the following species group"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table04col01.title" default="Species Group"/></td>
+            <td class="labels"><g:message code="advancedsearch.group.title" default="Species Group"/></td>
             <td>
                 <select class="species_group" name="species_group" id="species_group">
-                    <option value=""><g:message code="advancedsearch.table04col01.option.label" default="-- select a species group --"/></option>
+                    <option value=""><g:message code="advancedsearch.group.option.label" default="-- select a species group --"/></option>
                     <g:each var="group" in="${request.getAttribute(FacetsName.SPECIES_GROUP.fieldname)}">
                         <option value="${group.key}">${group.value}</option>
                     </g:each>
@@ -59,15 +59,15 @@
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title05" default="Find records from the following regions"/></b>
+    <b><g:message code="advancedsearch.section.region" default="Find records from the following regions"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table05col01.title" default="Country"/></td>
+            <td class="labels"><g:message code="advancedsearch.country.title" default="Country"/></td>
             <td>
                 <select class="country" name="country" id="country">
-                    <option value=""><g:message code="advancedsearch.table05col01.option.label" default="-- select a country --"/></option>
+                    <option value=""><g:message code="advancedsearch.country.option.label" default="-- select a country --"/></option>
                     <g:each var="country" in="${request.getAttribute(FacetsName.COUNTRIES.fieldname)}">
                         <option value="${country.key}">${country.value}</option>
                     </g:each>
@@ -75,10 +75,10 @@
             </td>
         </tr>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table05col02.title" default="State/Territory"/></td>
+            <td class="labels"><g:message code="advancedsearch.state.title" default="State/Territory"/></td>
             <td>
                 <select class="state" name="state" id="state">
-                    <option value=""><g:message code="advancedsearch.table05col02.option.label" default="-- select a state/territory --"/></option>
+                    <option value=""><g:message code="advancedsearch.state.option.label" default="-- select a state/territory --"/></option>
                     <g:each var="state" in="${request.getAttribute(FacetsName.STATES.fieldname)}">
                         <option value="${state.key}">${state.value}</option>
                     </g:each>
@@ -88,10 +88,10 @@
         <g:set var="autoPlaceholder" value="start typing and select from the autocomplete drop-down list"/>
         <g:if test="${request.getAttribute(FacetsName.IBRA.fieldname) && request.getAttribute(FacetsName.IBRA.fieldname).size() > 1}">
         <tr>
-            <td class="labels"><abbr title="Interim Biogeographic Regionalisation of Australia">IBRA</abbr> <g:message code="advancedsearch.table05col03.title" default="region"/></td>
+            <td class="labels"><abbr title="Interim Biogeographic Regionalisation of Australia">IBRA</abbr> <g:message code="advancedsearch.ibra.title" default="region"/></td>
             <td>
                 <select class="biogeographic_region" name="ibra" id="ibra">
-                    <option value=""><g:message code="advancedsearch.table05col03.option.label" default="-- select an IBRA region --"/></option>
+                    <option value=""><g:message code="advancedsearch.ibra.option.label" default="-- select an IBRA region --"/></option>
                     <g:each var="region" in="${request.getAttribute(FacetsName.IBRA.fieldname)}">
                         <option value="${region.key}">${region.value}</option>
                     </g:each>
@@ -101,10 +101,10 @@
         </g:if>
         <g:if test="${request.getAttribute(FacetsName.IMCRA.fieldname) && request.getAttribute(FacetsName.IMCRA.fieldname).size() > 1}">
         <tr>
-            <td class="labels"><abbr title="Integrated Marine and Coastal Regionalisation of Australia">IMCRA</abbr> <g:message code="advancedsearch.table05col04.title" default="region"/></td>
+            <td class="labels"><abbr title="Integrated Marine and Coastal Regionalisation of Australia">IMCRA</abbr> <g:message code="advancedsearch.imcra.title" default="region"/></td>
             <td>
                 <select class="biogeographic_region" name="imcra" id="imcra">
-                    <option value=""><g:message code="advancedsearch.table05col04.option.label" default="-- select an IMCRA region --"/></option>
+                    <option value=""><g:message code="advancedsearch.imcra.option.label" default="-- select an IMCRA region --"/></option>
                     <g:each var="region" in="${request.getAttribute(FacetsName.IMCRA.fieldname)}">
                         <option value="${region.key}">${region.value}</option>
                     </g:each>
@@ -114,10 +114,10 @@
         </g:if>
         <g:if test="${request.getAttribute(FacetsName.LGA.fieldname) && request.getAttribute(FacetsName.LGA.fieldname).size() > 1}">
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table05col05.title" default="Local Govt. Area"/></td>
+            <td class="labels"><g:message code="advancedsearch.lga.title" default="Local Govt. Area"/></td>
             <td>
                 <select class="lga" name="cl959" id="cl959">
-                    <option value=""><g:message code="advancedsearch.table05col05.option.label" default="-- select local government area--"/></option>
+                    <option value=""><g:message code="advancedsearch.lga.option.label" default="-- select local government area--"/></option>
                     <g:each var="region" in="${request.getAttribute(FacetsName.LGA.fieldname)}">
                         <option value="${region.key}">${region.value}</option>
                     </g:each>
@@ -143,29 +143,29 @@
             </td>
         </tr>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table06col02.title" default="Catalogue Number"/></td>
+            <td class="labels"><g:message code="advancedsearch.catalogueno.title" default="Catalogue Number"/></td>
             <td>
                 <input type="text" name="catalogue_number" id="catalogue_number" class="dataset" placeholder="" value=""/>
             </td>
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.title07" default="Find records within the following date range"/></b>
+    <b><g:message code="advancedsearch.section.date" default="Find records within the following date range"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table07col01.title" default="Begin Date"/></td>
+            <td class="labels"><g:message code="advancedsearch.begindate.title" default="Begin Date"/></td>
             <td>
                 <input type="text" name="start_date" id="startDate" class="occurrence_date" placeholder="" value=""/>
-                <g:message code="advancedsearch.table07col01.des" default="(YYYY-MM-DD) leave blank for earliest record date"/>
+                <g:message code="advancedsearch.begindate.des" default="(YYYY-MM-DD) leave blank for earliest record date"/>
             </td>
         </tr>
         <tr>
-            <td class="labels"><g:message code="advancedsearch.table07col02.title" default="End Date"/></td>
+            <td class="labels"><g:message code="advancedsearch.enddate.title" default="End Date"/></td>
             <td>
                 <input type="text" name="end_date" id="endDate" class="occurrence_date" placeholder="" value=""/>
-                <g:message code="advancedsearch.table07col02.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
+                <g:message code="advancedsearch.enddate.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
             </td>
         </tr>
         </tbody>
