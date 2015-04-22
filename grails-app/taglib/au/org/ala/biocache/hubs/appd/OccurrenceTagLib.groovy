@@ -48,7 +48,7 @@ class OccurrenceTagLib {
                     if (occurrence.eventDate) {
                         outputResultsLabel("Date: ", g.formatDate(date: new Date(occurrence.eventDate), format:"dd-MM-yyyy"), true)
                     } else if (occurrence.occurrenceYear || occurrence.year) {
-                        outputResultsLabel("Year: ", g.formatDate(number: new Date(occurrence.occurrenceYear?occurrence.occurrenceYear:occurrence.year), format:"yyyy"), true)
+                        outputResultsLabel("Year: ", g.formatDate(number: new Date(occurrence.year), format:"yyyy"), true)
                     }
                     if (occurrence.stateProvince) {
                         outputResultsLabel("State: ", alatag.message(code:occurrence.stateProvince), true)
@@ -59,7 +59,7 @@ class OccurrenceTagLib {
             }
             p(class:'rowB') {
                 outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
-//                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
+                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
 //                outputResultsLabel("Life&nbsp;Stage: ", alatag.message(code:occurrence.lifeStage), occurrence.lifeStage)
 //                outputResultsLabel("Catalog&nbsp;number: ", "${occurrence.raw_collectionCode ? occurrence.raw_collectionCode + ':' : ''}${occurrence.raw_catalogNumber}", occurrence.raw_catalogNumber)
                 a(
