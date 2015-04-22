@@ -58,9 +58,10 @@ class OccurrenceTagLib {
                 }
             }
             p(class:'rowB') {
-                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
-                outputResultsLabel("Life&nbsp;Stage: ", alatag.message(code:occurrence.lifeStage), occurrence.lifeStage)
-                outputResultsLabel("Catalog&nbsp;number: ", "${occurrence.raw_collectionCode ? occurrence.raw_collectionCode + ':' : ''}${occurrence.raw_catalogNumber}", occurrence.raw_catalogNumber)
+                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
+//                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
+//                outputResultsLabel("Life&nbsp;Stage: ", alatag.message(code:occurrence.lifeStage), occurrence.lifeStage)
+//                outputResultsLabel("Catalog&nbsp;number: ", "${occurrence.raw_collectionCode ? occurrence.raw_collectionCode + ':' : ''}${occurrence.raw_catalogNumber}", occurrence.raw_catalogNumber)
                 a(
                         href: g.createLink(url:"${request.contextPath}/occurrences/${occurrence.uuid}"),
                         class:"occurrenceLink",
