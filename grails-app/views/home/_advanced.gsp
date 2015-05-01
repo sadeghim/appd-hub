@@ -154,7 +154,6 @@
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
-<!--
         <tr>
             <td class="labels">Year</td>
             <td>
@@ -163,7 +162,7 @@
                 <input type="text" name="end_year" id="endYear" class="occurrence_date" placeholder="" value=""/>
             </td>
         </tr>
--->
+<!--
         <tr>
             <td class="labels"><g:message code="advancedsearch.begindate.title" default="Begin Date"/></td>
             <td>
@@ -178,6 +177,7 @@
                 <g:message code="advancedsearch.enddate.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
             </td>
         </tr>
+-->
         </tbody>
     </table>
     <input type="submit" value=<g:message code="advancedsearch.button.submit" default="Search"/> class="btn btn-primary" />
