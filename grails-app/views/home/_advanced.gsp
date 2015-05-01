@@ -162,22 +162,22 @@
                 <input type="text" name="end_year" id="endYear" class="occurrence_date" placeholder="" value=""/>
             </td>
         </tr>
-/*
- *       <tr>
- *           <td class="labels"><g:message code="advancedsearch.begindate.title" default="Begin Date"/></td>
- *           <td>
- *               <input type="text" name="start_date" id="startDate" class="occurrence_date" placeholder="" value=""/>
- *               <g:message code="advancedsearch.begindate.des" default="(YYYY-MM-DD) leave blank for earliest record date"/>
- *           </td>
- *       </tr>
- *       <tr>
- *           <td class="labels"><g:message code="advancedsearch.enddate.title" default="End Date"/></td>
- *           <td>
- *               <input type="text" name="end_date" id="endDate" class="occurrence_date" placeholder="" value=""/>
- *               <g:message code="advancedsearch.enddate.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
- *           </td>
- *       </tr>
- */
+<!--
+        <tr>
+            <td class="labels"><g:message code="advancedsearch.begindate.title" default="Begin Date"/></td>
+            <td>
+                <input type="text" name="start_date" id="startDate" class="occurrence_date" placeholder="" value=""/>
+                <g:message code="advancedsearch.begindate.des" default="(YYYY-MM-DD) leave blank for earliest record date"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="labels"><g:message code="advancedsearch.enddate.title" default="End Date"/></td>
+            <td>
+                <input type="text" name="end_date" id="endDate" class="occurrence_date" placeholder="" value=""/>
+                <g:message code="advancedsearch.enddate.des" default="(YYYY-MM-DD) leave blank for most recent record date"/>
+            </td>
+        </tr>
+ -->
         </tbody>
     </table>
     <input type="submit" value=<g:message code="advancedsearch.button.submit" default="Search"/> class="btn btn-primary" />
