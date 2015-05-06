@@ -157,9 +157,9 @@
         <tr>
             <td class="labels">Year</td>
             <td>
-                <input type="text" name="start_year" id="startYear" class="dataset" placeholder="" value=""/>
+                <input type="text" name="start_year" id="startYear" class="occurrence_date" placeholder="" value=""/>
                 to
-                <input type="text" name="end_year" id="endYear" class="dataset" placeholder="" value=""/>
+                <input type="text" name="end_year" id="endYear" class="occurrence_date" placeholder="" value=""/>
             </td>
         </tr>
         </tbody>
