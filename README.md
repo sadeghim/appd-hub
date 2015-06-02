@@ -3,7 +3,7 @@
 NOTE: Once installed via ansible, the following files will need to be modified on the APPD Hub server:
 
 In the file “/data/biocache/config/biocache-config.properties” add the extra line:
-   extra.misc.fields=hostFamily,hostGenus,hostSpecificEpithet,hostVernacularName
+   extra.misc.fields=hostFamily,hostGenus,hostSpecificEpithet,hostVernacularName,interceptionClassification
 
 In the file “/data/solr/biocache/conf/schema.xml”  add the following extra lines:
 
@@ -11,4 +11,5 @@ In the file “/data/solr/biocache/conf/schema.xml”  add the following extra l
    <field name="hostGenus" type="string" indexed="true" stored="true" multiValued="false"/>
    <field name="hostSpecificEpithet" type="string" indexed="true" stored="true" multiValued="false" />
    <field name="hostVernacularName" type="string" indexed="true" stored="true" multiValued="false" />
+   <field name="interceptionClassification" type="string" indexed="true" stored="true" multiValued="false" />
 
