@@ -62,8 +62,8 @@ class OccurrenceTagLib {
             p(class:'rowB') {
                 outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
 //                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
-                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.datasetName), true)
-                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.interceptionClassification), occurrence.interceptionClassification)
+                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
+                outputResultsLabel("Status: ", alatag.message(code:occurrence.interceptionClassification), occurrence.interceptionClassification)
                 if (occurrence.user_assertions) {
                 outputResultsLabel("**This record has comments**", "", true)
                 }
