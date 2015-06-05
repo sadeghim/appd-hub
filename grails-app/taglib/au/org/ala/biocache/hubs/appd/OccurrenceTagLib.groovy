@@ -59,7 +59,11 @@ class OccurrenceTagLib {
                     }
                 }
                 outputResultsLabel("  Dataset: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
-                outputResultsLabel(" Comments: ", alatag.message(code:occurrence.hasUserAssertions), occurrence.hasUserAssertions)
+                if (occurrence.hasUserAssertions && occurrence.hasUserAssertions.equals("True")) {
+                    outputResultsLabel(" ** (Comments Asserted) ** ", "", true)
+                }
+            }
+            p(class:'rowB') {
                 a(
                         href: g.createLink(url:"${request.contextPath}/occurrences/${occurrence.uuid}"),
                         class:"occurrenceLink",
@@ -67,9 +71,6 @@ class OccurrenceTagLib {
                         "View record"
                 )
             }
-//            p(class:'rowB') {
-//                outputResultsLabel(" ** THIS RECORD HAS COMMENTS ** ", "", occurrence.hasUserAssertions)
-//            }
         }
     }
 }
