@@ -61,9 +61,10 @@ class OccurrenceTagLib {
             }
             p(class:'rowB') {
 //                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
-                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.raw.occurrence.datasetName), occurrence.raw.occurrence.datasetName)
+//                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.raw.occurrence.datasetName), occurrence.raw.occurrence.datasetName)
+                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.raw.rowKey), occurrence.raw.rowKey)
                 outputResultsLabel("Status: ", alatag.message(code:occurrence.raw.miscProperties.interceptionClassification), occurrence.raw.miscProperties.interceptionClassification)
-                if (occurrence.raw.userAssertions) {
+                if (occurrence.userAssertions) {
                 outputResultsLabel(" **This record has comments** ", "", true)
                 }
 //                outputResultsLabel("Life&nbsp;Stage: ", alatag.message(code:occurrence.lifeStage), occurrence.lifeStage)
