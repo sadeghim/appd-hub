@@ -60,15 +60,10 @@ class OccurrenceTagLib {
                 }
             }
             p(class:'rowB') {
-//                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
-//                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.raw.occurrence.datasetName), occurrence.raw.occurrence.datasetName)
-                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.raw.rowKey), occurrence.raw.rowKey)
-                outputResultsLabel("Status: ", alatag.message(code:occurrence.raw.miscProperties.interceptionClassification), occurrence.raw.miscProperties.interceptionClassification)
-                if (occurrence.userAssertions) {
+                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
+                if (occurrence.hasUserAssertions) {
                 outputResultsLabel(" **This record has comments** ", "", true)
                 }
-//                outputResultsLabel("Life&nbsp;Stage: ", alatag.message(code:occurrence.lifeStage), occurrence.lifeStage)
-//                outputResultsLabel("Catalog&nbsp;number: ", "${occurrence.raw_collectionCode ? occurrence.raw_collectionCode + ':' : ''}${occurrence.raw_catalogNumber}", occurrence.raw_catalogNumber)
                 a(
                         href: g.createLink(url:"${request.contextPath}/occurrences/${occurrence.uuid}"),
                         class:"occurrenceLink",
