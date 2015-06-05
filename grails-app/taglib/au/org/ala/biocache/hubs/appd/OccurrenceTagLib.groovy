@@ -60,12 +60,11 @@ class OccurrenceTagLib {
                 }
             }
             p(class:'rowB') {
-                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
-//                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
-                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.datasetName), occurrence.datasetName)
-                outputResultsLabel("Status: ", alatag.message(code:occurrence.interceptionClassification), occurrence.interceptionClassification)
-                if (occurrence.user_assertions) {
-                outputResultsLabel("**This record has comments**", "", true)
+//                outputResultsLabel("Data&nbsp;Resource: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
+                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.raw.occurrence.datasetName), occurrence.raw.occurrence.datasetName)
+                outputResultsLabel("Status: ", alatag.message(code:occurrence.raw.miscProperties.interceptionClassification), occurrence.raw.miscProperties.interceptionClassification)
+                if (occurrence.raw.userAssertions) {
+                outputResultsLabel(" **This record has comments** ", "", true)
                 }
 //                outputResultsLabel("Life&nbsp;Stage: ", alatag.message(code:occurrence.lifeStage), occurrence.lifeStage)
 //                outputResultsLabel("Catalog&nbsp;number: ", "${occurrence.raw_collectionCode ? occurrence.raw_collectionCode + ':' : ''}${occurrence.raw_catalogNumber}", occurrence.raw_catalogNumber)
