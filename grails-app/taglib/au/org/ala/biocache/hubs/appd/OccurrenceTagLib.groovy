@@ -58,12 +58,11 @@ class OccurrenceTagLib {
                         outputResultsLabel("Country: ", alatag.message(code:occurrence.country), true)
                     }
                 }
+                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
             }
             p(class:'rowB') {
-                outputResultsLabel("Dataset: ", alatag.message(code:occurrence.dataResourceName), occurrence.dataResourceName)
-                if (occurrence.hasUserAssertions) {
-                outputResultsLabel(" **This record has comments** ", "", true)
-                }
+                outputResultsLabel(" ** THIS RECORD HAS COMMENTS ** ", "", occurrence.hasUserAssertions)
+
                 a(
                         href: g.createLink(url:"${request.contextPath}/occurrences/${occurrence.uuid}"),
                         class:"occurrenceLink",
