@@ -14,7 +14,7 @@
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.section.taxon" default="Find records for ANY of the following taxa (matched/processed taxon concepts)"/></b>
+    <b><g:message code="advancedsearch.section.taxon" default="Find records for ANY of the following pest taxa (matched/processed taxon concepts)"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
@@ -30,7 +30,7 @@
         </g:each>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.section.scientificname" default="Find records that specify the following scientific name (verbatim/unprocessed name)"/></b>
+    <b><g:message code="advancedsearch.section.scientificname" default="Find records that specify the following pest scientific name (verbatim/unprocessed name)"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
@@ -42,7 +42,7 @@
         </tr>
         </tbody>
     </table>
-    <b><g:message code="advancedsearch.section.group" default="Find records from the following species group"/></b>
+    <b><g:message code="advancedsearch.section.group" default="Find records from the following pest species group"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
         <tbody>
@@ -85,46 +85,6 @@
                 </select>
             </td>
         </tr>
-        <g:set var="autoPlaceholder" value="start typing and select from the autocomplete drop-down list"/>
-        <g:if test="${request.getAttribute(FacetsName.IBRA.fieldname) && request.getAttribute(FacetsName.IBRA.fieldname).size() > 1}">
-        <tr>
-            <td class="labels"><abbr title="Interim Biogeographic Regionalisation of Australia">IBRA</abbr> <g:message code="advancedsearch.ibra.title" default="region"/></td>
-            <td>
-                <select class="biogeographic_region" name="ibra" id="ibra">
-                    <option value=""><g:message code="advancedsearch.ibra.option.label" default="-- select an IBRA region --"/></option>
-                    <g:each var="region" in="${request.getAttribute(FacetsName.IBRA.fieldname)}">
-                        <option value="${region.key}">${region.value}</option>
-                    </g:each>
-                </select>
-            </td>
-        </tr>
-        </g:if>
-        <g:if test="${request.getAttribute(FacetsName.IMCRA.fieldname) && request.getAttribute(FacetsName.IMCRA.fieldname).size() > 1}">
-        <tr>
-            <td class="labels"><abbr title="Integrated Marine and Coastal Regionalisation of Australia">IMCRA</abbr> <g:message code="advancedsearch.imcra.title" default="region"/></td>
-            <td>
-                <select class="biogeographic_region" name="imcra" id="imcra">
-                    <option value=""><g:message code="advancedsearch.imcra.option.label" default="-- select an IMCRA region --"/></option>
-                    <g:each var="region" in="${request.getAttribute(FacetsName.IMCRA.fieldname)}">
-                        <option value="${region.key}">${region.value}</option>
-                    </g:each>
-                </select>
-            </td>
-        </tr>
-        </g:if>
-        <g:if test="${request.getAttribute(FacetsName.LGA.fieldname) && request.getAttribute(FacetsName.LGA.fieldname).size() > 1}">
-        <tr>
-            <td class="labels"><g:message code="advancedsearch.lga.title" default="Local Govt. Area"/></td>
-            <td>
-                <select class="lga" name="cl959" id="cl959">
-                    <option value=""><g:message code="advancedsearch.lga.option.label" default="-- select local government area--"/></option>
-                    <g:each var="region" in="${request.getAttribute(FacetsName.LGA.fieldname)}">
-                        <option value="${region.key}">${region.value}</option>
-                    </g:each>
-                </select>
-            </td>
-        </tr>
-        </g:if>
         </tbody>
     </table>
     <b><g:message code="advancedsearch.section.dataset" default="Find records with the following dataset fields"/></b>
