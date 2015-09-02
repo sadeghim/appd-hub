@@ -58,6 +58,7 @@ chartsBgColour = "#FFF"
 
 biocache.baseURL = "http://dev.ala.org.au:8080/biocache-hubs"
 biocache.ajax.useProxy = true
+biocache.groupedFacetsUrl=file:///data/appd-hub/config/grouped_facets_appd.json
 
 /******************************************************************************\
  *  CAS SETTINGS
