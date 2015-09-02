@@ -1,0 +1,204 @@
+[
+    {
+        "title":"Pest Taxon",
+        "facets":[
+            {
+                "sort":"index",
+                "field":"taxon_name"
+            },
+            {
+                "sort":"index",
+                "field":"raw_taxon_name"
+            },
+            {
+                "sort":"index",
+                "field":"common_name"
+            },
+            {
+                "sort":"index",
+                "field":"subspecies_name"
+            },
+            {
+                "sort":"index",
+                "field":"species"
+            },
+            {
+                "sort":"index",
+                "field":"genus"
+            },
+            {
+                "sort":"index",
+                "field":"family"
+            },
+            {
+                "sort":"index",
+                "field":"order"
+            },
+            {
+                "sort":"index",
+                "field":"class"
+            },
+            {
+                "sort":"index",
+                "field":"phylum"
+            },
+            {
+                "sort":"index",
+                "field":"kingdom"
+            },
+            {
+                "sort":"index",
+                "field":"species_group"
+            },
+            {
+                "sort":"count",
+                "field":"rank"
+            },
+            {
+                "sort":"count",
+                "field":"species_subgroup"
+            },
+            {
+                "sort":"count",
+                "field":"interaction"
+            }
+        ]
+    },
+    {
+        "title":"Host Taxon",
+        "facets":[
+            {
+                "sort":"index",
+                "field":"host_family"
+            },
+            {
+                "sort":"index",
+                "field":"host_genus"
+            },
+            {
+                "sort":"index",
+                "field":"host species"
+            },
+            {
+                "sort":"index",
+                "field":"host_common_name"
+            }
+        ]
+    },
+    {
+        "title":"Geospatial",
+        "facets":[
+            {
+                "sort": "index",
+                "field": "country"
+            },
+            {
+                "sort": "count",
+                "field": "cl927"
+            },
+            {
+                "sort": "count",
+                "field": "cl1048"
+            },
+            {
+                "sort": "count",
+                "field": "cl21"
+            },
+            {
+                "sort": "count",
+                "field": "cl966"
+            },
+            {
+                "sort": "count",
+                "field": "cl678"
+            },
+            {
+                "sort": "count",
+                "field": "cl618"
+            },
+            {
+                "sort": "count",
+                "field": "cl617"
+            },
+            {
+                "sort": "count",
+                "field": "cl620"
+            },
+            {
+                "sort": "count",
+                "field": "geospatial_kosher"
+            }
+        ]
+    },
+    {
+        "title":"Temporal",
+        "facets":[
+            {
+                "sort":"index",
+                "field":"month"
+            },
+            {
+                "sort":"index",
+                "field":"year"
+            },
+            {
+                "sort":"index",
+                "field":"occurrence_year"
+            }
+        ]
+    },
+    {
+        "title":"Record",
+        "facets":[
+            {
+                "sort":"index",
+                "field":"collector"
+            },
+            {
+                "sort":"count",
+                "field":"data_resource_uid"
+            },
+            {
+                "sort":"count",
+                "field":"interception_classification"
+            }
+        ]
+    },
+    {
+        "title":"Assertions",
+        "facets":[
+            {
+                "sort":"count",
+                "field":"sensitive"
+            },
+            {
+                "sort":"count",
+                "field":"assertions"
+            },
+            {
+                "sort":"count",
+                "field":"outlier_layer"
+            },
+            {
+                "sort":"count",
+                "field":"outlier_layer_count"
+            },
+            {
+                "sort":"count",
+                "field":"user_assertions"
+            },
+            {
+                "sort":"index",
+                "field":"assertion_user_id"
+            },
+            {
+                "sort":"count",
+                "field":"duplicate_status"
+            },
+            {
+                "sort":"count",
+                "field":"duplicate_type"
+            }
+        ]
+    }
+]
