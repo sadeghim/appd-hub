@@ -59,6 +59,18 @@
         </tr>
         </tbody>
     </table>
+    <b><g:message code="advancedsearch.host_name" default="Find records that specify the following host name (verbatim/unprocessed name)"/></b>
+    <table border="0" width="100" cellspacing="2" class="compact">
+        <thead/>
+        <tbody>
+        <tr>
+            <td class="labels"><g:message code="advancedsearch.host_name.title" default="Host Name"/></td>
+            <td>
+                <input type="text" name="host_name" id="host_name" class="dataset" placeholder="" size="60" value=""/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     <b><g:message code="advancedsearch.section.region" default="Find records from the following regions"/></b>
     <table border="0" width="100" cellspacing="2" class="compact">
         <thead/>
