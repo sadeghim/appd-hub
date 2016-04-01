@@ -1,6 +1,6 @@
 [
     {
-        "title":"Pest Taxon",
+        "title":"Taxon",
         "facets":[
             {
                 "sort":"index",
@@ -52,36 +52,32 @@
             },
             {
                 "sort":"count",
-                "field":"rank"
-            },
-            {
-                "sort":"count",
                 "field":"species_subgroup"
             },
             {
                 "sort":"count",
-                "field":"interaction"
+                "field":"rank"
             }
         ]
     },
     {
-        "title":"Host Taxon",
+        "title":"Taxonomic",
         "facets":[
             {
                 "sort":"index",
-                "field":"host_family"
+                "field":"hostFamily"
             },
             {
                 "sort":"index",
-                "field":"host_genus"
+                "field":"hostGenus"
             },
             {
                 "sort":"index",
-                "field":"host species"
+                "field":"hostSpecificEpithet"
             },
             {
                 "sort":"index",
-                "field":"host_common_name"
+                "field":"hostVernacularName"
             }
         ]
     },
@@ -94,7 +90,7 @@
             },
             {
                 "sort": "count",
-                "field": "cl927"
+                "field": "state"
             },
             {
                 "sort": "count",
@@ -110,19 +106,11 @@
             },
             {
                 "sort": "count",
-                "field": "cl678"
+                "field": "cl23"
             },
             {
                 "sort": "count",
-                "field": "cl618"
-            },
-            {
-                "sort": "count",
-                "field": "cl617"
-            },
-            {
-                "sort": "count",
-                "field": "cl620"
+                "field": "species_habitats"
             },
             {
                 "sort": "count",
@@ -131,8 +119,12 @@
         ]
     },
     {
-        "title":"Temporal",
+        "title":"Record details",
         "facets":[
+            {
+                "sort":"index",
+                "field":"collector"
+            },
             {
                 "sort":"index",
                 "field":"month"
@@ -144,15 +136,6 @@
             {
                 "sort":"index",
                 "field":"occurrence_year"
-            }
-        ]
-    },
-    {
-        "title":"Record",
-        "facets":[
-            {
-                "sort":"index",
-                "field":"collector"
             },
             {
                 "sort":"count",
@@ -160,7 +143,7 @@
             },
             {
                 "sort":"count",
-                "field":"interception_classification"
+                "field":"interceptionClassification"
             }
         ]
     },
@@ -194,6 +177,14 @@
             {
                 "sort":"count",
                 "field":"duplicate_status"
+            },
+            {
+                "sort":"count",
+                "field":"name_match_metric"
+            },
+            {
+                "sort":"count",
+                "field":"taxonomic_issue"
             },
             {
                 "sort":"count",
